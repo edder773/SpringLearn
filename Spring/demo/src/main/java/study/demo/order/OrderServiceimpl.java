@@ -5,6 +5,7 @@ import study.demo.discount.FiixDiscountPolicy;
 import study.demo.discount.RateDiscountPolicy;
 import study.demo.member.Member;
 import study.demo.member.MemberRepository;
+import study.demo.member.MemberServiceImpl;
 import study.demo.member.MemoryMemberRepository;
 
 public class OrderServiceimpl implements OrderService{
@@ -26,5 +27,9 @@ public class OrderServiceimpl implements OrderService{
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
     }
 }
